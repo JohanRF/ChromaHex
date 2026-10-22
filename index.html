@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ChromaHex</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<header>
+		<nav>
+			<!-- icono -->
+			<h1 class="logo">ChromaHex</h1>
+
+			<div class="modo-toggle">
+				<input type="checkbox" name="" id="toggle-mode">
+				<label for="toggle-mode" class="slider">
+					<span class="icon sun"><i class="fa-solid fa-sun"></i></span>
+					<span class="icon moon"><i class="fa-solid fa-moon"></i></span>
+					<span class="ball"></span>
+				</label>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<section class="main1">
+			<div class="box box1">
+				<div class="selector">
+					<p>Selector de Color</p>
+					<input type="color" class="mainColor">
+				</div>
+
+				<div class="selector2">
+					<p>Color Seleccionado</p>
+					<input class="nameColor" type="text">
+
+					<button class="btnAutoSave">Guardar Color</button>
+				</div>
+			</div>
+			
+			<div class="box box2">
+				<div class="mensagge-not-historial">
+					<!-- icono -->
+					<p>No hay colores en el historial</p>
+					<span>Los colores aplicados aparecerán aquí</span>
+				</div>
+
+				<!-- ?SECCION DE GUARDADO HISTORIAL -->
+
+				<div class="saveColors"></div>
+				<div class="btnDeleteColors">Eliminar Historial</div>
+			</div>
+		</section>
+
+		<section class="main2">
+			<div class="box box3">
+				<p class="titulo-box3">Vista Previa</p>
+				<div class="vistaNameColor">
+					<p class="nameColor2"></p>
+				</div>
+
+				<div class="line"></div>
+				<button class="btn-copiar-color">Copiar Codigo HEX</button>
+			</div>
+
+			<div class="box box4">
+				<p>Como usar</p>
+				<ul>
+					<li>• Selecciona un color usando el selector</li>
+					<li>• Haz click en "Aplicar Color" para ver la vista previa</li>
+					<li>• Copia el código HEX con un clic</li>
+					<li>• Reautiliza colores desde el historial</li>
+				</ul>
+			</div>
+		</section>
+	</main>
+
+	<div class="alertColor"></div>
+
+	<script src="script.js"></script>
+	<script src="https://kit.fontawesome.com/4e26a4ebf9.js" crossorigin="anonymous"></script>
+</body>
+</html>

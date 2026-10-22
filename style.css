@@ -1,0 +1,391 @@
+:root {
+  /* Colores modo claro */
+	--clr-bg: hsl(0, 0%, 100%);
+	--clr-text: hsl(60, 1%, 42%);
+	--clr-card: hsl(190, 13%, 91%);
+	--clr-border: hsl(195, 5%, 85%);
+	--clr-input-bg: hsl(197, 5%, 74%);
+	--clr-alert-bg: hsl(0, 0%, 100%);
+	--clr-alert-text:hsl(0, 0%, 0%);
+	--clr-button-bg: hsl(0, 2%, 12%);	
+	--clr-text-btn:hsl(0, 25%, 94%);
+	--clr-button-hover: hsl(0, 1%, 23%);
+	--clr-box3-bg: hsl(0, 0%, 95%);
+	--clr-nameColor-bg: hsla(0, 0%, 9%, 0.192);
+	--clr-nameColor-text: hsl(0, 0%, 100%);
+	--clr-header:hsl(24, 11%, 91%);
+	--clr-title:hsl(0, 0%, 20%);
+	--clr-cuadroName-text:hsl(0, 0%, 40%);
+	--clr-btn-delete:hsl(0, 1%, 48%);
+	--clr-btn-secondary:hsla(60, 3%, 58%, 0.267);
+	--clr-btn-secondary-text:hsl(60, 2%, 11%);
+	--clr-btn-secondary-text-hover:hsl(0, 2%, 65%);
+
+  /* Colores modo oscuro */
+	--dark-bg: hsl(200, 6%, 10%);
+	--dark-text: hsl(0, 0%, 87%);
+	--dark-card: hsl(210, 4%, 18%);
+	--dark-input-bg: hsl(0, 0%, 27%);
+	--dark-border: hsl(0, 0%, 33%);
+	--dark-button-bg: hsl(0, 0%, 100%);
+	--dark-text-btn:hsl(0, 2%, 8%);
+	--dark-button-hover: hsl(0, 3%, 71%);
+	--dark-header:hsl(0, 3%, 7%);
+	--dark-title:hsl(0, 0%, 100%);
+	--dark-cuadroName-text:hsl(0, 2%, 77%);
+	--dark-btn-delete:hsl(0, 6%, 87%);
+	--dark-btn-secondary:hsla(60, 2%, 38%, 0.267);
+	--dark-btn-secondary-text:hsl(60, 14%, 95%);
+	--dark-btn-secondary-text-hover:hsl(0, 0%, 29%);
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+}
+
+body{
+	background-color: var(--clr-bg);
+	color: var(--clr-text);
+	font-family: Arial, Helvetica, sans-serif;
+	word-spacing: 2px;
+}
+
+/**MODO NOCHE O OSCURO*/
+body.night {
+	--clr-header:var(--dark-header);
+	--clr-title:var(--dark-title);
+	--clr-bg: var(--dark-bg);
+	--clr-text: var(--dark-text);
+	--clr-card: var(--dark-card);
+	--clr-border: var(--dark-border);
+	--clr-input-bg: var(--dark-input-bg);
+	--clr-button-bg: var(--dark-button-bg);
+	--clr-text-btn: var(--dark-text-btn);
+	--clr-button-hover: var(--dark-button-hover);
+	--clr-box3-bg: #2a2a2a;
+	--clr-nameColor-bg: rgba(255,255,255,0.1);
+	--clr-nameColor-text: #eee;
+	--clr-cuadroName-text:var(--dark-cuadroName-text);
+	--clr-btn-delete:var(--dark-btn-delete);
+	--clr-btn-secondary:var(--dark-btn-secondary);
+	--clr-btn-secondary-text:var(--dark-btn-secondary-text);
+	--clr-btn-secondary-text-hover:var(--dark-btn-secondary-text-hover);
+}
+
+/* *NAVEGADOR O BARRA DE ARRIBA */
+header{
+	padding: 20px;
+	background-color: var(--clr-header);
+}
+nav h1{
+	margin-left: 20px;
+}
+
+/* *MODO TOGGLE SUN AND MOON */
+.modo-toggle{
+	position: absolute;
+	top: 20px;
+	right: 48px;
+}
+#toggle-mode{
+	display: none;
+	/* *Curioso que no se borre los iconos */
+}
+.slider{
+	width: 60px;
+	height: 30px;
+	background-color: #ccc;
+	border-radius: 50px;
+	position: relative;
+	cursor: pointer;
+	transition: background-color .3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 6px;
+	box-sizing: border-box;
+	/* ?PREGUNTA: POR QUE EL * LE AGREGUE BOX-SIZING Y NO AFECTA A TODO SI ES UNIVERSAL? */
+}
+.slider .ball{
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 26px;
+	height: 26px;
+	background: linear-gradient(135deg, #fff, #ddd);
+	box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+	border-radius: 50%;
+	transition: transform .3s ease;
+	z-index: 1;
+}
+#toggle-mode:checked + .slider {
+	background-color: #333;
+}
+#toggle-mode:checked + .slider .ball {
+	transform: translateX(30px);
+}
+/* ?QUE ME EXPLIQUE QUE HACE ESTA PARTE DEL CODIGO, CHECKED */
+
+/* *MAIN O CUERPO DE LA PAGINA */
+main{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 36px;
+	margin: 40px;
+	height: 520px;
+	color: rgb(109, 109, 107);
+}
+
+.main1, .main2{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	gap: 24px;
+}
+.box{
+	display: flex;
+	gap: 12px;
+	background-color: var(--clr-card);
+	border: 1.5px solid var(--clr-border);
+	padding: 20px;
+	width: 480px;
+	border-radius: 12px;
+	transition: all .2s ease-out;
+}
+.main1 .box1 .selector{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.selector p{
+	font-size: 14px;
+}
+.selector .mainColor{
+	height: 100px;
+	width: 100%;
+	margin-top: 12px;
+	border: none;
+	background-color: var(--clr-input-bg);
+	padding: 4px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+.selector2{
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	justify-content: center;
+}
+.selector2 p{
+	font-size: 14px;
+}
+.selector2 .nameColor{
+	text-transform: lowercase;
+}
+.selector2 .nameColor, .selector2 .btnAutoSave{
+	border: none;
+	padding: 12px 16px;
+	border-radius: 8px;
+}
+.selector2 .btnAutoSave{
+	transition: .3s ease-out;
+	background-color: var(--clr-button-bg);
+	color: var(--clr-text-btn);
+}
+.selector2 .btnAutoSave:hover{
+	background-color: var(--clr-button-hover);
+	cursor: pointer;
+}
+.main1 .box2{
+	/* Permitimos que crezca si se agregan elementos */
+	height: auto;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.main1 .mensagge-not-historial{
+	width: 100%;
+	text-align: center;
+	margin: auto 0;
+	padding: 64px 0;
+}
+.mensagge-not-historial p{
+	margin-bottom: 4px;
+	font-size: 24px;
+	color: #8b8989;
+}
+.mensagge-not-historial span{
+	font-size: 16px;
+	color: rgb(180, 182, 184);
+}
+
+/** IMPORTANTE: Seccion guardado historial */
+.main1 .saveColors{
+	display: none;
+	grid-template-columns: repeat(6,1fr);
+	width: 100%;
+	height: auto;
+	gap: 16px;
+}
+.saveColors .itemColor{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+}
+.cuadroGuardado{
+	width: 50px;
+	height: 50px;
+	border-radius: 8px;
+	border: 1px solid #cec9c998;
+	cursor: pointer;
+	transform: scale(1);
+	transition: .2s ease-out;
+}
+.cuadroGuardado.animar-entrada{
+	animation: entradaCuadro .3s ease-out;
+}
+.cuadroGuardado:hover{
+	transform: scale(1.05);
+}
+.cuadroName{
+	font-size: 12px;
+	color: var(--clr-cuadroName-text);
+	text-transform: lowercase;
+}
+/**Aqui termina */
+
+/** Seccion de boton Eliminar Guardado */
+.btnDeleteColors{
+	display: none;
+	border: none;
+	background-color: hsla(60, 3%, 58%, 0.267);
+	color: var(--clr-btn-delete);
+	padding: 16px;
+	border-radius: 8px;
+	text-align: center;
+	transition: .3s ease-out;
+	cursor: pointer;
+	margin: 0 auto;
+}
+.itemColor.eliminar-animado {
+	animation: delateColors 500ms ease-in-out forwards;
+}
+.btnDeleteColors:hover{
+	background-color: rgb(168, 165, 165);
+}
+/** Aqui termina*/
+
+.main2 .box3{
+	flex-direction: column;
+	height: 264px;
+}
+.box3 .vistaNameColor{
+	background-color: var(--clr-box3-bg);
+	height: 120px;
+	padding: 12px;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	transition: background-color .4s ease;
+}
+.vistaNameColor .nameColor2{
+	background-color: var(--clr-nameColor-bg);
+	color: var(--clr-nameColor-text);
+	padding: 8px;
+	border-radius: 8px;
+	margin-top: auto;
+	letter-spacing: 2px;
+	text-transform: lowercase;
+}
+.line{
+	padding: .7px;
+	background-color: hsla(60, 6%, 80%, 0.253);
+	margin: 8px 0;
+}
+.box3 .btn-copiar-color{
+	border: none;
+	background-color: var(--clr-btn-secondary);
+	color: var(--clr-btn-secondary-text);
+	padding: 16px;
+	border-radius: 8px;
+	transition: .3s ease-out;
+	cursor: pointer;
+}
+.box3 button:hover{
+	background-color: var(--clr-btn-secondary-text-hover);
+}
+
+.main2 .box4{
+	display: flex;
+	flex-direction: column;
+	height: 124px;
+	justify-content: center;
+}
+.box4 ul{
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+.box4 li{
+	color: rgb(143, 146, 148);
+	font-size: 14px;
+}
+
+.alertColor{
+	background-color: var(--clr-alert-bg);
+	color: var(--clr-alert-text);
+	width: 212px;
+	padding: 8px 12px;
+	position: fixed;
+	bottom: 24px;
+	right: 24px;
+	box-shadow: 0 4px 4px 0 rgb(0,0,0,.5);
+
+	transform: translateY(100px);
+	transition: opacity .4s ease, transform .4s ease;
+
+	border-radius: 8px;
+	font-size: 12px;
+	z-index: 999;
+}
+.alertColor.mostrar{
+	display: block;
+	opacity: 1;
+	transform: translateY(0);
+	pointer-events: auto; 
+}
+
+/* *RESPONSIVES */
+
+/* *ANIMACION */
+@keyframes entradaCuadro {
+	from{
+		opacity: 0;
+		transform: scale(0.5);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+@keyframes delateColors {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	30% {
+		transform: scale(1.2);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
